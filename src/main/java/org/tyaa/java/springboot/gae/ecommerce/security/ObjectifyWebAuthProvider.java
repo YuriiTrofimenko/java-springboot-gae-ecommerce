@@ -48,7 +48,7 @@ public class ObjectifyWebAuthProvider implements AuthenticationProvider {
 
         List<GrantedAuthority> authorities = new ArrayList<>();
         Logger.getLogger(ObjectifyWebAuthProvider.class.getName()).log(Level.SEVERE, null, "my - " + userModel.role);
-        authorities.add(new SimpleGrantedAuthority(userModel.role.name)); // name is a string
+        authorities.add(new SimpleGrantedAuthority("ROLE_" + userModel.role.name)); // name is a string
 
         return new UsernamePasswordAuthenticationToken(name, password, authorities);
     }
